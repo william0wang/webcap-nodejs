@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var restify = require('restify');
 const Pageres = require('pageres');
 
