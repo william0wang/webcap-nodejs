@@ -4,7 +4,7 @@
   "description": "Web cap server",
   "main": "app.js",
   "bin": {
-	  "webcap": "./bin/webcap"
+	  "webcap": "./app.js"
   },
   "dependencies": {
     "pageres": "^4.5.1",
