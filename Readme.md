@@ -39,9 +39,9 @@ http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocume
  filepath  | string | 存储文件的路径
  filename  | string | 存储文件名
  delay     | int    | 延迟，加载页面延迟时间
- useragent | string | 用户代理
+ useragent | string | 浏览器UserAgent字符串
 
- useragent 值为空时使用iOS 10 移动UA, 值为 desktop 时使用 Safari 10 桌面浏览器UA, 其他可直接传UA字符串
+ PS: useragent 默认值，为空时使用iOS 10移动浏览器UA, 值为`desktop`时使用Safari 10桌面浏览器UA
 
 ## 返回值
 
