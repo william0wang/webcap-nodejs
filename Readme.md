@@ -24,7 +24,7 @@ http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocume
  delay     | int    | 延迟，加载页面延迟时间
  useragent | string | 用户代理
 
- useragent 为空时默认使用iOS 10 UA，"desktop"： Safari 10 桌面浏览器，其他可直接传UA字符串
+ useragent 为空时使用iOS 10 移动UA，为 desktop 时使用 Safari 10 桌面浏览器UA，其他可直接传UA字符串
 
 ## 返回值
 
