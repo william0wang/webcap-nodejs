@@ -14,7 +14,7 @@ npm install -g
 webcap
 
 # 配合screen后台运行
-screen -S webcap webcap
+screen -dmS webcap webcap
 ```
 
 ## 请求格式
