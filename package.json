@@ -4,7 +4,6 @@
   "description": "Web cap server",
   "main": "app.js",
   "dependencies": {
-    "phantomjs": "^2.1.7",
     "pageres": "^4.5.1",
     "restify": "^5.0.1"
   },
