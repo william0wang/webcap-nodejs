@@ -1,5 +1,22 @@
 # WebCap
 
+## 安装运行
+
+```bash
+# 克隆工程
+git clone https://github.com/william0wang/webcap-nodejs.git
+
+# npm安装
+cd webcap-nodejs
+npm install -g
+
+# 前台运行
+webcap
+
+# 配合screen后台运行
+screen -S webcap webcap
+```
+
 ## 请求格式
 
 ```js
