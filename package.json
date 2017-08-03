@@ -1,0 +1,27 @@
+{
+  "name": "webcap",
+  "version": "1.0.0",
+  "description": "Web cap server",
+  "main": "app.js",
+  "dependencies": {
+    "pageres": "^4.5.1",
+    "restify": "^5.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/william0wang/webcap-nodejs.git"
+  },
+  "keywords": [
+    "webcap"
+  ],
+  "author": "william0wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/william0wang/webcap-nodejs/issues"
+  },
+  "homepage": "https://github.com/william0wang/webcap-nodejs#readme"
+}
