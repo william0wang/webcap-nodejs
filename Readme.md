@@ -24,10 +24,10 @@ screen -dmS webcap webcap
 http://localhost:7381/cap/:url/:filename/:size/:delay/:useragent
 
 // 使用移动浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/outfile/720x1280/3
+http://localhost:7381/cap/https%3a%2f%2fwww.taobao.com/outfile/720x1280/3
 
 // 使用桌面浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/outfile/1920x1080/3/desktop
+http://localhost:7381/cap/https%3a%2f%2fwww.taobao.com/outfile/1920x1080/3/desktop
 
 ```
 
