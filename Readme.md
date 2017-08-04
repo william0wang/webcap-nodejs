@@ -24,10 +24,10 @@ screen -dmS webcap webcap
 http://localhost:7381/cap/:url/:filepath/:filename/:size/:delay/:useragent
 
 // 使用移动浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/1080x1920/5
+http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/720x1280/5
 
 // 使用桌面浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/1080x1920/5/desktop
+http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/1920x1080/5/desktop
 
 ```
 
@@ -38,6 +38,7 @@ http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocume
  url       | string | 请求的链接地址
  filepath  | string | 存储文件的路径
  filename  | string | 存储文件名
+ size      | string | 图片宽x高，例如:1080x1920
  delay     | int    | 延迟，加载页面延迟时间
  useragent | string | 浏览器UserAgent字符串
 
