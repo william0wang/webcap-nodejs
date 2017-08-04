@@ -7,6 +7,7 @@ function respond(req, res, next) {
   var uri = req.params.uri
   var path = req.params.path
   var name = req.params.name
+  var size = req.params.size
   var delay = req.params.delay
   var ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E277 Safari/602.1"
 
@@ -21,7 +22,7 @@ function respond(req, res, next) {
     }
 
   const streams = new Pageres()
-    .src(uri, ['1080x1920'], {format : "jpg", filename : name, delay : delay, userAgent : ua})
+    .src(uri, [size], {format : "jpg", filename : name, delay : delay, userAgent : ua})
     .dest(path).run().then(() => {
         res.send( {
             ret : 0,
@@ -46,8 +47,8 @@ var server = restify.createServer({
   version: '1.0.0'
 });
 
-server.get('/cap/:uri/:path/:name/:delay', respond);
-server.get('/cap/:uri/:path/:name/:delay/:ua', respond);
+server.get('/cap/:uri/:path/:name/:size/:delay', respond);
+server.get('/cap/:uri/:path/:name/:size/:delay/:ua', respond);
 
 server.listen(7381, function() {
   console.log('%s listening at %s', server.name, server.url);

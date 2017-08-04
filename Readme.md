@@ -21,13 +21,13 @@ screen -dmS webcap webcap
 
 ```js
 
-http://localhost:7381/cap/:url/:filepath/:filename/:delay/:useragent
+http://localhost:7381/cap/:url/:filepath/:filename/:size/:delay/:useragent
 
 // 使用移动浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/5
+http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/1080x1920/5
 
 // 使用桌面浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/5/desktop
+http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/1080x1920/5/desktop
 
 ```
 
