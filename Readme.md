@@ -38,7 +38,7 @@ http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocume
  url       | string | 请求的链接地址
  filepath  | string | 存储文件的路径
  filename  | string | 存储文件名
- size      | string | 图片宽x高，例如:1080x1920
+ size      | string | 图片宽x高，例如:720x1280
  delay     | int    | 延迟，加载页面延迟时间
  useragent | string | 浏览器UserAgent字符串
 
