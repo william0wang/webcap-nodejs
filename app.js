@@ -6,24 +6,15 @@ var fs= require('fs');
 function respond(req, res, next) {
 
   var uri = req.params.uri;
-  var path = req.params.path;
   var name = req.params.name;
   var size = req.params.size;
   var delay = req.params.delay;
   var ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E277 Safari/602.1";
 
-  var fpath = path + '/' + name + '.jpg';
+  var fpath = './images/' + name + '.jpg';
 
   if (fsExists(fpath)) {
-        res.send({
-            ret : -1,
-            error : {
-                fileExist : "file : " + fpath + " is exist!"
-            },
-            file : ""
-        });
-        next();
-      return;
+      fs.unlinkSync(fpath)
   }
 
   if (uri.indexOf("http") != 0)
@@ -38,11 +29,11 @@ function respond(req, res, next) {
 
   const streams = new Pageres()
     .src(uri, [size], {format : "jpg", filename : name, delay : delay, userAgent : ua})
-    .dest(path).run().then(() => {
+    .dest('./images').run().then(() => {
         res.send( {
             ret : 0,
             error : {},
-            file : path + '/' + name + '.jpg'
+            file : 'images/' + name + '.jpg'
         }
         );
         next();
@@ -71,8 +62,11 @@ var server = restify.createServer({
   version: '1.0.0'
 });
 
-server.get('/cap/:uri/:path/:name/:size/:delay', respond);
-server.get('/cap/:uri/:path/:name/:size/:delay/:ua', respond);
+server.get('/cap/:uri/:name/:size/:delay', respond);
+server.get('/cap/:uri/:name/:size/:delay/:ua', respond);
+server.get(/\/images\/?.*/, restify.plugins.serveStatic({
+    directory: __dirname
+}));
 
 server.listen(7381, function() {
   console.log('%s listening at %s', server.name, server.url);

@@ -21,13 +21,13 @@ screen -dmS webcap webcap
 
 ```js
 
-http://localhost:7381/cap/:url/:filepath/:filename/:size/:delay/:useragent
+http://localhost:7381/cap/:url/:filename/:size/:delay/:useragent
 
 // 使用移动浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/720x1280/5
+http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/outfile/720x1280/3
 
 // 使用桌面浏览器UA
-http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocuments%2faboem%2ftemp/outfile/1920x1080/5/desktop
+http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/outfile/1920x1080/3/desktop
 
 ```
 
@@ -36,8 +36,7 @@ http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocume
 参数 | 类型 | 说明
 ---------|----------|---------
  url       | string | 请求的链接地址
- filepath  | string | 存储文件的路径
- filename  | string | 存储文件名
+ filename  | string | 文件名
  size      | string | 图片宽x高，例如:720x1280
  delay     | int    | 延迟，加载页面延迟时间
  useragent | string | 浏览器UserAgent字符串
@@ -57,5 +56,11 @@ http://localhost:7381/cap/https%3a%2f%2fwww.10ln.com/%2fUsers%2fwilliam%2fDocume
 参数 | 类型 | 说明
 ---------|----------|---------
  ret       | int    | 结果状态，0 正常，-1 异常
- file      | string | 存储文件的完整路径
+ file      | string | 图片文件路径
  error     | object | 错误信息
+
+## 获取图片
+
+从返回值的`file`字段中获得文件路径，例如`images/output.jpg`
+
+然后直接访问网站获取文件:`http://localhost:7381/images/output.jpg`

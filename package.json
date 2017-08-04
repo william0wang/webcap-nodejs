@@ -4,11 +4,12 @@
   "description": "Web cap server",
   "main": "app.js",
   "bin": {
-	  "webcap": "./app.js"
+    "webcap": "./app.js"
   },
   "dependencies": {
     "pageres": "^4.5.1",
-    "restify": "^5.0.1"
+    "restify": "^5.0.1",
+    "serve-static-restify": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
