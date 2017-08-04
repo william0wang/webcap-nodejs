@@ -1,23 +1,38 @@
 #!/usr/bin/env node
 var restify = require('restify');
-const Pageres = require('pageres');
+var Pageres = require('pageres');
+var fs= require('fs');
 
 function respond(req, res, next) {
 
-  var uri = req.params.uri
-  var path = req.params.path
-  var name = req.params.name
-  var size = req.params.size
-  var delay = req.params.delay
-  var ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E277 Safari/602.1"
+  var uri = req.params.uri;
+  var path = req.params.path;
+  var name = req.params.name;
+  var size = req.params.size;
+  var delay = req.params.delay;
+  var ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E277 Safari/602.1";
+
+  var fpath = path + '/' + name + '.jpg';
+
+  if (fsExists(fpath)) {
+        res.send({
+            ret : -1,
+            error : {
+                fileExist : "file : " + fpath + " is exist!"
+            },
+            file : ""
+        });
+        next();
+      return;
+  }
 
   if (uri.indexOf("http") != 0)
-    uri = "http://" + uri
+    uri = "http://" + uri;
 
     if(req.params.ua) {
-        ua = req.params.ua
+        ua = req.params.ua;
         if (ua === "desktop") {
-            ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/603.2.4 (KHTML, like Gecko) Version/10.1.1 Safari/603.2.4"
+            ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/603.2.4 (KHTML, like Gecko) Version/10.1.1 Safari/603.2.4";
         }
     }
 
@@ -40,6 +55,15 @@ function respond(req, res, next) {
         });
         next();
    });
+}
+
+function fsExists(path) {
+    try{
+        fs.accessSync(path, fs.F_OK);
+    } catch(e) {
+        return false;
+    }
+    return true;
 }
 
 var server = restify.createServer({
