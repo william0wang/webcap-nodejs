@@ -2,6 +2,7 @@
 var restify = require('restify');
 var Pageres = require('pageres');
 var fs= require('fs');
+var path='/tmp/webcap';
 
 function respond(req, res, next) {
 
@@ -11,7 +12,7 @@ function respond(req, res, next) {
   var delay = req.params.delay;
   var ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E277 Safari/602.1";
 
-  var fpath = './images/' + name + '.jpg';
+  var fpath = path + '/images/' + name + '.jpg';
 
   if (fsExists(fpath)) {
       fs.unlinkSync(fpath)
@@ -29,7 +30,7 @@ function respond(req, res, next) {
 
   const streams = new Pageres()
     .src(uri, [size], {format : "jpg", filename : name, delay : delay, userAgent : ua})
-    .dest('./images').run().then(() => {
+    .dest(path+ '/images/').run().then(() => {
         res.send( {
             ret : 0,
             error : {},
@@ -65,7 +66,7 @@ var server = restify.createServer({
 server.get('/cap/:uri/:name/:size/:delay', respond);
 server.get('/cap/:uri/:name/:size/:delay/:ua', respond);
 server.get(/\/images\/?.*/, restify.plugins.serveStatic({
-    directory: __dirname
+    directory: path
 }));
 
 server.listen(7381, function() {
