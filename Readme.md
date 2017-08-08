@@ -6,10 +6,10 @@
 
 ```bash
 # 下载镜像
-docker pull wan0eve/docker-webcap
+docker pull william0wang/webcap
 
 # 运行
-docker run -d --restart always --name webcap -p 7381:7381 -v /tmp/webcap:/tmp/webcap wan0eve/docker-webcap:latest
+docker run -d --restart always --name webcap -p 7381:7381 -v /tmp/webcap:/tmp/webcap william0wang/webcap:latest
 ```
 
 ### NodeJS 方式
