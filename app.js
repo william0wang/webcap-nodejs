@@ -1,18 +1,19 @@
 #!/usr/bin/env node
-var restify = require('restify');
-var Pageres = require('pageres');
-var fs= require('fs');
-var path='/tmp/webcap';
+
+const restify = require('restify');
+const Pageres = require('pageres');
+const fs = require('fs');
+const path ='/tmp/webcap';
 
 function respond(req, res, next) {
 
-  var uri = req.params.uri;
-  var name = req.params.name;
-  var size = req.params.size;
-  var delay = req.params.delay;
-  var ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E277 Safari/602.1";
+  let uri = req.params.uri;
+  let name = req.params.name;
+  let size = req.params.size;
+  let delay = req.params.delay;
+  let ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) Version/10.0 Mobile/14E277 Safari/602.1";
 
-  var fpath = path + '/images/' + name + '.jpg';
+  let fpath = path + '/images/' + name + '.jpg';
 
   if (fsExists(fpath)) {
       fs.unlinkSync(fpath)
@@ -28,8 +29,7 @@ function respond(req, res, next) {
         }
     }
 
-  const streams = new Pageres()
-    .src(uri, [size], {format : "jpg", filename : name, delay : delay, userAgent : ua})
+   new Pageres().src(uri, [size], {format : "jpg", filename : name, delay : delay, userAgent : ua})
     .dest(path+ '/images/').run().then(() => {
         res.send( {
             ret : 0,
@@ -58,7 +58,7 @@ function fsExists(path) {
     return true;
 }
 
-var server = restify.createServer({
+const server = restify.createServer({
    name: 'ds_api',
   version: '1.0.0'
 });
