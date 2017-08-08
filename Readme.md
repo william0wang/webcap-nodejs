@@ -1,6 +1,16 @@
 # WebCap
 
-## 安装运行
+## 安装运行 (Docker)
+
+```bash
+# 下载镜像
+docker pull wan0eve/docker-webcap
+
+# 运行
+docker run -d --restart always --name webcap -p 7381:7381 -v /tmp/webcap:/tmp/webcap wan0eve/docker-webcap:latest
+```
+
+## 安装运行 (NodeJS)
 
 ```bash
 # 克隆工程
