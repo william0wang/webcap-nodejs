@@ -30,13 +30,22 @@ function respond(req, res, next) {
     }
 
    new Pageres().src(uri, [size], {format : "jpg", filename : name, delay : delay, userAgent : ua})
-    .dest(path+ '/images/').run().then(() => {
-        res.send( {
-            ret : 0,
-            error : {},
-            file : 'images/' + name + '.jpg'
+    .dest(path+ '/images/').run().then((streams) => {
+        if (streams.length > 0) {
+            res.send( {
+                    ret : 0,
+                    error : {},
+                    file : 'images/' + streams[0].filename
+                }
+            );
+        } else {
+            res.send( {
+                    ret : -1,
+                    error : { cap : 'cap error!'},
+                    file : ''
+                }
+            );
         }
-        );
         next();
     }
   ).catch(function(e) {
