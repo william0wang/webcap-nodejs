@@ -5,6 +5,6 @@ services:
     restart: always
     image: wan0eve/docker-webcap:latest
     volumes:
-      - ./data:/tmp/webacp
+      - ./data:/tmp/webcap
     ports:
       - "7381:7381"
